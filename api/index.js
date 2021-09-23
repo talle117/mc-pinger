@@ -15,6 +15,7 @@ export default async function (req, res) {
     });
 
   const request = await ping(version.toLowerCase(), address.toLowerCase());
+  return res.status(200).json(request);
   if (!request || request.error) {
     if (!txt)
       return res.status(200).json({
